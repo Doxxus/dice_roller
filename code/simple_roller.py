@@ -8,6 +8,7 @@ layout = [	[sg.Text('Special Rolls:'), sg.Button('Roll with Advantage'), sg.Butt
 
 # Create the Window
 window = sg.Window('Simple Dice Roller', layout)
+
 # Event Loop to process "events" and get the "values" of the inputs
 while True:
 	event, values = window.read()
