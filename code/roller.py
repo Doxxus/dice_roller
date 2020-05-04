@@ -89,9 +89,10 @@ def disadv_roll(inp):
 
 def roll(inp):
 	f = open("roll.txt", "w")
-	print(inp)
+	
 	die = inp[1:]
-	rol = roll(int(die))
+		
+	rol = get_roll(int(die))
 	print(rol)
 	f.write(inp + ": " + str(rol))
 	f.close()
