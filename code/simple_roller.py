@@ -6,7 +6,7 @@ sg.theme('DarkPurple4')	# Add a touch of color
 layout = [	[sg.Text('Special Rolls:'), sg.Button('Roll with Advantage'), sg.Button('Roll with Disadvantage')],
 			[sg.Text('Rolls:'), sg.Button('D4'), sg.Button('D6'), sg.Button('D8'), sg.Button('D10'), sg.Button('D12'), sg.Button('D20'), sg.Button('D100')],
 			[sg.Text('Number of Dice to Roll'), sg.Spin([i for i in range(1,30)], initial_value=1)],
-			[sg.Output(size=(50, 1))]]
+			[sg.Output(size=(50, 1), key = '_output_')]]
 
 # Create the Window
 window = sg.Window('Simple Dice Roller', layout)
@@ -14,7 +14,9 @@ window = sg.Window('Simple Dice Roller', layout)
 # Event Loop to process "events" and get the "values" of the inputs
 while True:
 	event, values = window.read()
-
+	
+	window.FindElement('_output_').Update('')
+	
 	if event in (None, 'D4'):
 		if(values[0] != 1):
 			r.multi_roll(str(values[0]) + "d4")
@@ -65,7 +67,5 @@ while True:
 	
 	elif event in (None, 'Cancel'):	# if user closes window or clicks cancel
 		break
-	
-	print(event, values)
 
 window.close()
