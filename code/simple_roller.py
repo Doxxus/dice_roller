@@ -1,15 +1,15 @@
-import PySimpleGUI as sg
+import PySimpleGUI as gui
 import roller as r
 
 sg.theme('DarkPurple4')	# Add a touch of color
 # All the stuff inside your window.
-layout = [	[sg.Text('Special Rolls:'), sg.Button('Roll with Advantage'), sg.Button('Roll with Disadvantage')],
-			[sg.Text('Rolls:'), sg.Button('D4'), sg.Button('D6'), sg.Button('D8'), sg.Button('D10'), sg.Button('D12'), sg.Button('D20'), sg.Button('D100')],
-			[sg.Text('Number of Dice to Roll'), sg.Spin([i for i in range(1,30)], initial_value=1)],
-			[sg.Output(size=(50, 1), key = '_output_')]]
+layout = [	[gui.Text('Special Rolls:'), gui.Button('Roll with Advantage'), gui.Button('Roll with Disadvantage')],
+			[gui.Text('Rolls:'), gui.Button('D4'), gui.Button('D6'), gui.Button('D8'), gui.Button('D10'), gui.Button('D12'), gui.Button('D20'), gui.Button('D100')],
+			[gui.Text('Number of Dice to Roll'), gui.Spin([i for i in range(1,30)], initial_value=1)],
+			[gui.Output(size=(50, 1), key = '_output_')]]
 
 # Create the Window
-window = sg.Window('Simple Dice Roller', layout)
+window = gui.Window('Simple Dice Roller', layout)
 
 # Event Loop to process "events" and get the "values" of the inputs
 while True:
