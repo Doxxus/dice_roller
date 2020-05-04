@@ -1,12 +1,13 @@
 import PySimpleGUI as gui
 import roller as r
 
-sg.theme('DarkPurple4')	# Add a touch of color
+gui.theme('DarkPurple4')	# Add a touch of color
 # All the stuff inside your window.
 layout = [	[gui.Text('Special Rolls:'), gui.Button('Roll with Advantage'), gui.Button('Roll with Disadvantage')],
 			[gui.Text('Rolls:'), gui.Button('D4'), gui.Button('D6'), gui.Button('D8'), gui.Button('D10'), gui.Button('D12'), gui.Button('D20'), gui.Button('D100')],
 			[gui.Text('Number of Dice to Roll'), gui.Spin([i for i in range(1,30)], initial_value=1)],
-			[gui.Output(size=(50, 1), key = '_output_')]]
+			[gui.Output(size=(50, 1), key = '_output_')],
+			[gui.Button('QUIT')]]
 
 # Create the Window
 window = gui.Window('Simple Dice Roller', layout)
@@ -65,7 +66,7 @@ while True:
 	elif event in (None, 'Roll with Disadvantage'):
 		r.disadv_roll("d20")
 	
-	elif event in (None, 'Cancel'):	# if user closes window or clicks cancel
+	elif event in (None, 'QUIT'):	# if user closes window or clicks cancel
 		break
 
 window.close()
