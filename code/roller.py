@@ -6,11 +6,11 @@ def get_roll(type):
 def multi_roll(inp):
 	f = open("roll.txt", "w")
 
-	dindex = user_input.find("d")
+	dindex = inp.find("d")
 			
 	sum = 0
-	num = user_input[:dindex]
-	die = user_input[dindex+1:]	
+	num = inp[:dindex]
+	die = inp[dindex+1:]	
 	rolls = []
 			
 	for i in range(int(num)):
@@ -21,7 +21,7 @@ def multi_roll(inp):
 	print(sum)
 	print(rolls)
 				
-	f.write(user_input + ": " + str(sum) + "\n")
+	f.write(inp + ": " + str(sum) + "\n")
 	f.write(str(rolls))
 	f.close()
 	
@@ -30,7 +30,7 @@ def multi_roll(inp):
 def adv_roll(inp):
 	f = open("roll.txt", "w")
 
-	die = user_input[2:]
+	die = inp[1:]
 	rol1 = get_roll(int(die))
 	rol2 = get_roll(int(die))
 			
@@ -42,16 +42,16 @@ def adv_roll(inp):
 	f.write("Advantage: \n")
 	
 	if(rol1 > rol2):
-		f.write(user_input[1:] + ": *" + str(rol1) + "\n")
-		f.write(user_input[1:] + ": " + str(rol2) + "\n")
-		rolls += rol1
-		rolls += rol2
+		f.write(inp + ": *" + str(rol1) + "\n")
+		f.write(inp + ": " + str(rol2) + "\n")
+		rolls += str(rol1)
+		rolls += str(rol2)
 				
 	else:
-		f.write(user_input[1:] + ": " + str(rol1) + "\n")
-		f.write(user_input[1:] + ": *" + str(rol2) + "\n")
-		rolls += rol2
-		rolls += rol1
+		f.write(inp + ": " + str(rol1) + "\n")
+		f.write(inp + ": *" + str(rol2) + "\n")
+		rolls += str(rol2)
+		rolls += str(rol1)
 		
 	f.close()
 	
@@ -60,7 +60,7 @@ def adv_roll(inp):
 def disadv_roll(inp):
 	f = open("roll.txt", "w")
 
-	die = user_input[2:]
+	die = inp[1:]
 	rol1 = get_roll(int(die))
 	rol2 = get_roll(int(die))
 	
@@ -72,16 +72,16 @@ def disadv_roll(inp):
 	f.write("Disadvantage: \n")
 	
 	if(rol1 > rol2):
-		f.write(user_input[1:] + ": " + str(rol1) + "\n")
-		f.write(user_input[1:] + ": *" + str(rol2) + "\n")
-		rolls += rol2
-		rolls += rol1
+		f.write(inp + ": " + str(rol1) + "\n")
+		f.write(inp + ": *" + str(rol2) + "\n")
+		rolls += str(rol2)
+		rolls += str(rol1)
 				
 	else:
-		f.write(user_input[1:] + ": *" + str(rol1) + "\n")
-		f.write(user_input[1:] + ": " + str(rol2) + "\n")
-		rolls += rol1
-		rolls += rol2
+		f.write(inp + ": *" + str(rol1) + "\n")
+		f.write(inp + ": " + str(rol2) + "\n")
+		rolls += str(rol1)
+		rolls += str(rol2)
 		
 	f.close()
 	
@@ -89,18 +89,18 @@ def disadv_roll(inp):
 
 def roll(inp):
 	f = open("roll.txt", "w")
-	die = user_input[1:]
+	die = inp[1:]
 	rol = roll(int(die))
 	print(rol)
-	f.write(user_input + ": " + str(rol))
+	f.write(inp + ": " + str(rol))
 	f.close()
 	
 	return rol
 
 def run_console():
-	print("Shitty Dice Roller: \n")
+	print("Simple Dice Roller: \n")
 	
-	while(True):
+	while True:
 		user_input = input("> ")
 		
 		#Handles multi dice rolls (of the form xdy where x is the number of die and the y is the type of die)
@@ -109,11 +109,11 @@ def run_console():
 			
 		#Handles rolling with advantage	
 		elif(user_input[0] == "a" and user_input[1] == "d"):
-			adv_roll(user_input)
+			adv_roll(user_input[1:])
 			
 		#Handles rolling with disadvantage
 		elif(user_input[0] == "d" and user_input[1] == "d"):
-			disadv_roll(user_input)
+			disadv_roll(user_input[1:])
 		
 		#Handles rolling with a single die
 		elif(user_input[0] == "d"):
