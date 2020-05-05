@@ -1,12 +1,13 @@
 import PySimpleGUI as gui
 import roller as r
 
-gui.theme('DarkPurple4')	# Add a touch of color
-# All the stuff inside your window.
+gui.theme('DarkPurple4')
+
+# The Current Layout
 layout = [	[gui.Text('Special Rolls:'), gui.Button('Roll with Advantage'), gui.Button('Roll with Disadvantage')],
-			[gui.Text('Rolls:'), gui.Button('D4'), gui.Button('D6'), gui.Button('D8'), gui.Button('D10'), gui.Button('D12'), gui.Button('D20'), gui.Button('D100')],
 			[gui.Text('Number of Dice to Roll'), gui.Spin([i for i in range(1,30)], initial_value=1)],
-			[gui.Output(size=(50, 1), key = '_output_')],
+			[gui.Text('Rolls:'), gui.Button(button_text='D4', size=(5,1)), gui.Button(button_text='D6', size=(5,1)), gui.Button(button_text='D8', size=(5,1)), gui.Button(button_text='D10', size=(5,1)), gui.Button(button_text='D12', size=(5,1)), gui.Button(button_text='D20', size=(5,1)), gui.Button(button_text='D100', size=(5,1))], 
+			[gui.Output(size=(58, 1), key = '_output_')],
 			[gui.Button('QUIT')]]
 
 # Create the Window
