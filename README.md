@@ -10,7 +10,7 @@ Created By: Lachlan Campbell
 
 > Move roller.py and simple_roller.py into the desired folder (or keep them in the code folder if you wish).
 
-> Navigate to the folder the code files are in a console window and then type 'python simple_roller.py' or 'python3 simple_roller.py'
+> Navigate to the folder the code files are in, in a console window and then type 'python simple_roller.py' or 'python3 simple_roller.py'
 
 > Enjoy rolling some dice.
 
