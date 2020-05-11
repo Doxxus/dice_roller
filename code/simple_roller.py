@@ -23,44 +23,44 @@ while True:
 		window.FindElement('_spin_').Update(value=1)
 	
 	elif event in (None, 'D4'):
-		if(values[0] != 1):
-			r.multi_roll(str(values[0]) + "d4")
+		if(values['_spin_'] != 1):
+			r.multi_roll(str(values['_spin_']) + "d4")
 		else:
 			r.roll("d4")
 	
 	elif event in (None, 'D6'):
-		if(values[0] != 1):
-			r.multi_roll(str(values[0]) + "d6")
+		if(values['_spin_'] != 1):
+			r.multi_roll(str(values['_spin_']) + "d6")
 		else:
 			r.roll("d6")
 	
 	elif event in (None, 'D8'):
-		if(values[0] != 1):
-			r.multi_roll(str(values[0]) + "d8")
+		if(values['_spin_'] != 1):
+			r.multi_roll(str(values['_spin_']) + "d8")
 		else:
 			r.roll("d8")
 			
 	elif event in (None, 'D10'):
-		if(values[0] != 1):
-			r.multi_roll(str(values[0]) + "d10")
+		if(values['_spin_'] != 1):
+			r.multi_roll(str(values['_spin_']) + "d10")
 		else:
 			r.roll("d10")
 			
 	elif event in (None, 'D12'):
-		if(values[0] != 1):
-			r.multi_roll(str(values[0]) + "d12")
+		if(values['_spin_'] != 1):
+			r.multi_roll(str(values['_spin_']) + "d12")
 		else:
 			r.roll("d12")
 			
 	elif event in (None, 'D20'):
-		if(values[0] != 1):
-			r.multi_roll(str(values[0]) + "d20")
+		if(values['_spin_'] != 1):
+			r.multi_roll(str(values['_spin_']) + "d20")
 		else:
 			r.roll("d20")
 			
 	elif event in (None, 'D100'):
-		if(values[0] != 1):
-			r.multi_roll(str(values[0]) + "d100")
+		if(values['_spin_'] != 1):
+			r.multi_roll(str(values['_spin_']) + "d100")
 		else:
 			r.roll("d100")
 	
